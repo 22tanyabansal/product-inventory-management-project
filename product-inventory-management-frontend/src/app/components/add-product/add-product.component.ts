@@ -26,6 +26,7 @@ export class AddProductComponent implements OnInit {
   addProduct(): void {
     this.productService.addProduct(this.product).subscribe({
         next: () => {
+          alert('Product added successfully!');
           this.router.navigate(['/inventory/home']);
         },
         error: (error: any) => {

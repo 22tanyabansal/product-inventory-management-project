@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 
@@ -39,6 +39,7 @@ export class EditProductComponent implements OnInit {
   updateProduct(): void {
     this.productService.updateProduct(this.product.id, this.product).subscribe({
       next: () => {
+        alert('Product added successfully!');
         this.router.navigate(['/inventory/home']);
       },
       error: (error: any) => {

@@ -2,6 +2,13 @@
     padding: 20px;
 }
 
+input[type="text"]{
+    width: 10%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
 .product-list {
     list-style: none;
     padding: 0;
@@ -16,5 +23,21 @@
 }
 
 .actions button {
-    margin-left: 5px;
+    margin-left: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.actions button:hover{
+    background-color: rgb(150, 223, 236);
+}
+
+.addProduct{
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.addProduct:hover{
+    background-color: rgb(150, 223, 236);
 }

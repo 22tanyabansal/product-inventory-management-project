@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient  // ✅ Registers this service to Eureka
+@EnableDiscoveryClient
 public class ProxyGatewayApplication {
 
     public static void main(String[] args) {

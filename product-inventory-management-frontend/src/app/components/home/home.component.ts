@@ -19,7 +19,6 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private productService: ProductService,
-    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -58,10 +57,5 @@ export class HomeComponent {
 
   addProduct(): void {
     this.router.navigate(['/inventory/add-product']);
-  }
-
-  logout(): void {
-    // this.authService.logout();
-    this.router.navigate(['/inventory']);
   }
 }

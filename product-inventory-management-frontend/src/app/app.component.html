@@ -1,13 +1,14 @@
 <header>
     <nav>
-        <a routerLink="/inventory">Products</a>
-        <a routerLink="/inventory/home">Products</a>
+        <a *ngIf="!(isLoggedIn$ | async)" routerLink="/inventory">Products</a>
+        <a *ngIf="isLoggedIn$ | async" routerLink="/inventory/home">Products</a>
         <a routerLink="/about">About</a>
-        <div class="auth-links">
+        <div class="auth-links" *ngIf="!(isLoggedIn$ | async)">
             <a routerLink="/auth/sign-in">Sign In</a>
             <a routerLink="/auth/register">Register</a>
         </div>
-        <!-- <button>Logout</button> -->
+        <button *ngIf="isLoggedIn$ | async" (click)="logout()">Logout</button>
     </nav>
 </header>
+<app-footer></app-footer>
 <router-outlet />

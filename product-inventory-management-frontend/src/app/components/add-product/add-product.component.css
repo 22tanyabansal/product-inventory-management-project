@@ -1,5 +1,5 @@
 .container {
-    padding: 20px;
+    padding: 35px;
 }
 
 .form-group {
@@ -13,7 +13,7 @@ label {
 
 input[type="text"],
 input[type="number"] {
-    width: 100%;
+    width: 50%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;

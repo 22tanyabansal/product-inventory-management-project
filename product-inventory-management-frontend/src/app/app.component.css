@@ -20,7 +20,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #e9ecef;
+    background-color: rgb(150, 223, 236);
 }
 
 .auth-links {

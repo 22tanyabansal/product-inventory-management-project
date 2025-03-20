@@ -28,16 +28,18 @@ export class RegisterComponent implements OnInit {
   register(form: NgForm): void {
     if (form.valid) {
       this.authService.register(this.user).subscribe({
-        next: (response: any) => {
-          if (response) {
-            alert('Registration successful!');
-            this.router.navigate(['/auth/sign-in']);
+        next: () => {
+          alert('Registration successful!');
+          this.router.navigate(['/auth/sign-in']);
+        },
+        error: (error: any) => {
+          if (error.status === 409) {
+            this.errorMessage = 'User already exists with this email.';
+          }else if (error.status === 500) {
+            this.errorMessage = 'Server error. Please try again later.';
           } else {
             this.errorMessage = 'Registration failed. Please try again.';
           }
-        },
-        error: (error: any) => {
-          this.errorMessage = 'Registration failed. Please try again.';
         }
       });
     } else {

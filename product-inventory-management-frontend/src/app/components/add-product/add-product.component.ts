@@ -11,7 +11,7 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './add-product.component.css'
 })
 
-export class AddProductComponent implements OnInit {
+export class AddProductComponent{
   product: any = {};
 
   constructor(
@@ -19,9 +19,9 @@ export class AddProductComponent implements OnInit {
     private productService: ProductService
   ) { }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  // ngOnInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
   addProduct(): void {
     this.productService.addProduct(this.product).subscribe({

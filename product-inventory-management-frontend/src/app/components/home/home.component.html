@@ -1,15 +1,35 @@
 <div class="container">
     <h2>Product List</h2>
-    <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" />
-    <button class="addProduct" (click)="addProduct()">Add Product</button>
-    <ul class="product-list">
-        <li *ngFor="let product of products | filter:searchTerm">
-            {{ product.name }}
-            <div class="actions">
-                <button (click)="viewProduct(product.id)">View</button>
-                <button (click)="editProduct(product.id)">Edit</button>
-                <button (click)="deleteProduct(product.id)">Delete</button>
-            </div>
-        </li>
-    </ul>
+
+    <div class="search-add">
+        <input type="text" placeholder="Search products..." [(ngModel)]="searchTerm" />
+        <button class="addProduct" (click)="addProduct()">Add Product</button>
+    </div>
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Manufacturer</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products | filter:searchTerm">
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.manufacturer }}</td>
+                <td>₹{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td class="actions">
+                    <button (click)="viewProduct(product.id)">View</button>
+                    <button (click)="editProduct(product.id)">Edit</button>
+                    <button (click)="deleteProduct(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

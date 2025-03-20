@@ -47,6 +47,7 @@ export class HomeComponent {
   deleteProduct(productId: number): void {
     this.productService.deleteProduct(productId).subscribe({
       next: () => {
+        alert('Product deleted successfully!');
         this.loadProducts();
       },
       error: (error) => {

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { Router} from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { tap } from 'rxjs/operators';
 
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         .pipe(
           tap(response => {
             if (response) {
+              alert('Login successfully!');
               this.router.navigate(['/inventory/home']);
             } else {
               this.errorMessage = 'Invalid email or password.';

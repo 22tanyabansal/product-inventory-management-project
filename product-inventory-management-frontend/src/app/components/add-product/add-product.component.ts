@@ -19,10 +19,6 @@ export class AddProductComponent{
     private productService: ProductService
   ) { }
 
-  // ngOnInit(): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
   addProduct(): void {
     this.productService.addProduct(this.product).subscribe({
         next: () => {

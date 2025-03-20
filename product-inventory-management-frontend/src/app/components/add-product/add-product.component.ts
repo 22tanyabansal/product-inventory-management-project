@@ -1,0 +1,37 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProductService } from '../../services/product.service';
+
+@Component({
+  selector: 'app-add-product',
+  imports: [FormsModule, CommonModule],
+  templateUrl: './add-product.component.html',
+  styleUrl: './add-product.component.css'
+})
+
+export class AddProductComponent implements OnInit {
+  product: any = {};
+
+  constructor(
+    private router: Router,
+    private productService: ProductService
+  ) { }
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  addProduct(): void {
+    this.productService.addProduct(this.product).subscribe({
+        next: () => {
+          this.router.navigate(['/inventory/home']);
+        },
+        error: (error: any) => {
+          console.error('Error adding product:', error);
+        }
+      }
+    );
+  }
+}

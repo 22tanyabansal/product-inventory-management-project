@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Product List</h2>
+    <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" />
+    <button (click)="addProduct()">Add Product</button>
+    <button (click)="logout()">Logout</button>
+    <ul class="product-list">
+        <li *ngFor="let product of products | filter:searchTerm">
+            {{ product.name }}
+            <div class="actions">
+                <button (click)="viewProduct(product.id)">View</button>
+                <button (click)="editProduct(product.id)">Edit</button>
+                <button (click)="deleteProduct(product.id)">Delete</button>
+            </div>
+        </li>
+    </ul>
+</div>
